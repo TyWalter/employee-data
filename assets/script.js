@@ -1,13 +1,18 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn'); 
 
+// creates a blank array of employees
+let employeesArray = [];
+
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
-  
-    let employeesArray = [];
-    let addMore = true;
+// TODO: Get user input to create and return an array of employee objects
 
+// sets confirmation to true for use in the while loops
+  let addMore = true;
+
+
+// while loop that uses prompts to enter employee information and loops if addMore is true
     while(addMore) {
       let addEmployee = {};
       addEmployee.firstName = prompt('Enter Employee First Name');
@@ -17,26 +22,35 @@ const collectEmployees = function() {
       addMore = confirm('Do you want to add more employees?');
     }
 
-    displayEmployees(employeesArray);
-  return(employeesArray);
+// displays employee array in console
+  displayEmployees(employeesArray);
+  return employeesArray;
 }
 
 // Display the average salary
-const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
-  let sum = 0;
+const displayAverageSalary = function() {
+// TODO: Calculate and display the average salary
+
+// sets all salaries to 0 to begin with and iterates through adding each salary to totalSalary
+  let totalSalary = 0;
   for(let i=0; i<employeesArray.length; i++){
-    sum += employeesArray[i];
-  }
-  let avg = sum/employeesArray.length; 
-  return(avg);  
+    const obj=employeesArray[i];
+    totalSalary += obj.salary;
+  };
+
+
+// averages out salaries and displays in the console
+  const avgSalary = (`The average salary for ${employeesArray.length} employee(s) is $${totalSalary / employeesArray.length}`);
+  console.log(avgSalary);
 }
 
 // Select a random employee
-const getRandomEmployee = function(employeesArray) {
+const getRandomEmployee = function() {
   // TODO: Select and display a random employee
-  let randomEmployee = employeesArray[Math.floor(Math.random()*employeesArray.length)];
-  return(randomEmployee);
+
+// chooses a random employee that has been added and displays it in the console
+  const randomEmp = employeesArray[Math.floor(Math.random()*employeesArray.length)];
+  console.log(`This is an employee chosen at random: ${randomEmp.firstName} ${randomEmp.lastName}`);
 }
 
 
@@ -86,7 +100,7 @@ const trackEmployeeData = function() {
 
   console.table(employees);
 
-  // displayAverageSalary(employees);
+  displayAverageSalary(employees);
 
   console.log('==============================');
 
