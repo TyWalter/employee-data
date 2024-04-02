@@ -40,7 +40,7 @@ const displayAverageSalary = function() {
 
 
 // averages out salaries and displays in the console
-  const avgSalary = (`The average salary for ${employeesArray.length} employee(s) is $${totalSalary / employeesArray.length}`);
+  const avgSalary = (`The average employee salary between our ${employeesArray.length} employee(s) is $${totalSalary / employeesArray.length}`);
   console.log(avgSalary);
 }
 
@@ -50,7 +50,7 @@ const getRandomEmployee = function() {
 
 // chooses a random employee that has been added and displays it in the console
   const randomEmp = employeesArray[Math.floor(Math.random()*employeesArray.length)];
-  console.log(`This is an employee chosen at random: ${randomEmp.firstName} ${randomEmp.lastName}`);
+  console.log(`Congratulations to ${randomEmp.firstName} ${randomEmp.lastName}, our random drawing winner!`);
 }
 
 
