@@ -23,9 +23,8 @@ const collectEmployees = function() {
     }
 
 // displays employee array in console
-  displayEmployees(employeesArray);
-  return employeesArray;
-}
+  return employeesArray
+};
 
 // Display the average salary
 const displayAverageSalary = function() {
