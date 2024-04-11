@@ -18,6 +18,9 @@ const collectEmployees = function() {
       addEmployee.firstName = prompt('Enter Employee First Name');
       addEmployee.lastName = prompt('Enter Employee Last Name');
       addEmployee.salary = parseInt(prompt('Enter Employee Salary'));
+        if(isNaN(addEmployee.salary)){
+        addEmployee.salary = parseInt(prompt('Enter a valid salary'))
+        }
       employeesArray.push(addEmployee);
       addMore = confirm('Do you want to add more employees?');
     }
